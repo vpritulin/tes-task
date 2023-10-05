@@ -37,6 +37,11 @@ $existingUsers[] = $newUser;
 
 // Log the result
 $logMessage = "New user registered: " . $newUser['email'];
-file_put_contents('log.txt', $logMessage . PHP_EOL, FILE_APPEND);
+if (file_put_contents('log.txt', $logMessage . PHP_EOL, FILE_APPEND)) {
+    echo "The data has been successfully saved in the log file.";
+} else {
+    echo "An error occurred when saving data to the log file.";
+}
+
 
 echo "success";
